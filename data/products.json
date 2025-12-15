@@ -857,5 +857,142 @@
       "condiment"
     ],
     "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "55",
+    "name": "Crown Spaghetti",
+    "brand": "Crown",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 1000,
+    "imageUrl": "/images/Crown Spaghetti 1000.jpeg",
+    "tags": ["spaghetti", "pasta", "crown"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "56",
+    "name": "Golden Penny Spaghetti",
+    "brand": "Golden Penny",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 100,
+    "imageUrl": "/images/Golden Penny Spaghetti 100.jpeg",
+    "tags": ["spaghetti", "pasta", "golden penny"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "57",
+    "name": "Honey Well Spaghetti",
+    "brand": "Honey Well",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 900,
+    "imageUrl": "/images/Honey Well Spaghetti 900.jpeg",
+    "tags": ["spaghetti", "pasta", "honey well"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "58",
+    "name": "IRS Spaghetti",
+    "brand": "IRS",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 900,
+    "imageUrl": "/images/IRS Spaghetti 900.jpeg",
+    "tags": ["spaghetti", "pasta", "irs"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "59",
+    "name": "Mama Pride Spaghetti",
+    "brand": "Mama Pride",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 950,
+    "imageUrl": "/images/Mama Pride Spaghetti 950.jpeg",
+    "tags": ["spaghetti", "pasta", "mama pride"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "60",
+    "name": "Vegetable Oil",
+    "brand": "Generic",
+    "category": "Cooking Oil",
+    "unit": "bottle",
+    "size": "150cl",
+    "sellingPrice": 4200,
+    "imageUrl": "/images/150cl oil 4,200.jpeg",
+    "tags": ["oil", "vegetable", "150cl"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "61",
+    "name": "Vegetable Oil",
+    "brand": "Generic",
+    "category": "Cooking Oil",
+    "unit": "bottle",
+    "size": "75cl",
+    "sellingPrice": 2100,
+    "imageUrl": "/images/75cl oil 2100.jpeg",
+    "tags": ["oil", "vegetable", "75cl"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "62",
+    "name": "Palm Oil",
+    "brand": "Generic",
+    "category": "Cooking Oil",
+    "unit": "bottle",
+    "size": "75cl",
+    "sellingPrice": 2000,
+    "imageUrl": "/images/75cl palm oil 2000.jpeg",
+    "tags": ["oil", "palm", "75cl"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "63",
+    "name": "Golden Terra Oil",
+    "brand": "Golden Terra",
+    "category": "Cooking Oil",
+    "unit": "bottle",
+    "sellingPrice": 3300,
+    "imageUrl": "/images/Golden terra oil 3,300.jpeg",
+    "tags": ["oil", "vegetable", "golden terra"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "64",
+    "name": "Smart Balance Oil",
+    "brand": "Smart Balance",
+    "category": "Cooking Oil",
+    "unit": "bottle",
+    "sellingPrice": 4000,
+    "imageUrl": "/images/Smart Balance oil 4000.jpeg",
+    "tags": ["oil", "vegetable", "smart balance"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "65",
+    "name": "Original Honey",
+    "brand": "Generic",
+    "category": "Condiments",
+    "unit": "bottle",
+    "size": "75cl",
+    "sellingPrice": 7000,
+    "imageUrl": "/images/75cl Original Honey 7000.jpeg",
+    "tags": ["honey", "original", "natural"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "66",
+    "name": "Mango Rice",
+    "brand": "Mango",
+    "category": "Grains & Foodstuff",
+    "unit": "bag",
+    "size": "50kg",
+    "sellingPrice": 72000,
+    "imageUrl": "/images/Mango Rice 1 Bag 50kg 72,000.jpeg",
+    "tags": ["rice", "mango", "bag", "50kg"],
+    "updatedAt": "2025-12-15T00:00:00Z"
   }
 ]

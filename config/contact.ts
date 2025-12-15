@@ -1,6 +1,6 @@
 // Contact Configuration
 // Update your WhatsApp number here (include country code without +)
-export const WHATSAPP_NUMBER = '2348000000000'; // Replace with your actual number
+export const WHATSAPP_NUMBER = '2347065961310'; // JOBICA FOODS WhatsApp
 
 // WhatsApp message templates
 export const WHATSAPP_MESSAGES = {
