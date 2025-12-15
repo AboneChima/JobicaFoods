@@ -994,5 +994,53 @@
     "imageUrl": "/images/Mango Rice 1 Bag 50kg 72,000.jpeg",
     "tags": ["rice", "mango", "bag", "50kg"],
     "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "67",
+    "name": "The Lion Rice",
+    "brand": "The Lion",
+    "category": "Grains & Foodstuff",
+    "unit": "bag",
+    "size": "50kg",
+    "sellingPrice": 70000,
+    "imageUrl": "/images/the lion rice 50kg 70,000.webp",
+    "tags": ["rice", "the lion", "bag", "50kg"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "68",
+    "name": "Chijie Rice",
+    "brand": "Chijie",
+    "category": "Grains & Foodstuff",
+    "unit": "bag",
+    "size": "50kg",
+    "sellingPrice": 71000,
+    "imageUrl": "/images/chijie rice 50kg 71,000.webp",
+    "tags": ["rice", "chijie", "bag", "50kg"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "69",
+    "name": "Belas Rice",
+    "brand": "Belas",
+    "category": "Grains & Foodstuff",
+    "unit": "bag",
+    "size": "50kg",
+    "sellingPrice": 55000,
+    "imageUrl": "/images/belas rice 50kg 55,000.jpg",
+    "tags": ["rice", "belas", "bag", "50kg"],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "70",
+    "name": "Too Yumm Rice",
+    "brand": "Too Yumm",
+    "category": "Grains & Foodstuff",
+    "unit": "bag",
+    "size": "50kg",
+    "sellingPrice": 58000,
+    "imageUrl": "/images/TOO YUMM RICE 50kg 58,000.jpg",
+    "tags": ["rice", "too yumm", "bag", "50kg"],
+    "updatedAt": "2025-12-15T00:00:00Z"
   }
 ]

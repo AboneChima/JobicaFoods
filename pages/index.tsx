@@ -44,31 +44,31 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 flex flex-col">
         {/* Header */}
         <header className="bg-gradient-to-r from-emerald-600 to-emerald-700 sticky top-0 z-10 shadow-lg">
-          <div className="px-4 py-3">
+          <div className="px-4 sm:px-6 py-3 max-w-7xl mx-auto">
             {/* Logo and Brand */}
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md">
-                <span className="text-lg font-black text-emerald-600">JF</span>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl flex items-center justify-center shadow-md">
+                <span className="text-lg sm:text-xl font-black text-emerald-600">JF</span>
               </div>
               <div className="flex-1">
-                <h1 className="text-lg font-black text-white leading-tight">JOBICA FOODS</h1>
-                <p className="text-xs font-semibold text-emerald-100 uppercase tracking-wide">Wholesale & Retail</p>
+                <h1 className="text-lg sm:text-xl font-black text-white leading-tight">JOBICA FOODS</h1>
+                <p className="text-xs sm:text-sm font-semibold text-emerald-100 uppercase tracking-wide">Wholesale & Retail</p>
               </div>
             </div>
             
             {/* Search Bar */}
-            <div className="relative">
+            <div className="relative max-w-2xl">
               <input
                 type="search"
-                placeholder="Search products..."
+                placeholder="Search products, brands, categories..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full px-3 py-2 pl-9 rounded-lg text-gray-900 text-sm border-0 shadow-md focus:outline-none focus:ring-2 focus:ring-white transition"
+                className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pl-9 sm:pl-11 rounded-lg text-gray-900 text-sm sm:text-base border-0 shadow-md focus:outline-none focus:ring-2 focus:ring-white transition"
               />
-              <svg className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="absolute left-3 top-2.5 sm:top-3 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
@@ -76,7 +76,7 @@ export default function Home() {
         </header>
 
         {/* Filters */}
-        <div className="bg-white border-b sticky top-[112px] z-10 px-4 py-2 flex gap-2 overflow-x-auto shadow-sm">
+        <div className="bg-white border-b sticky top-[112px] sm:top-[120px] z-10 px-4 sm:px-6 py-2 sm:py-3 flex gap-2 overflow-x-auto shadow-sm max-w-7xl mx-auto">
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
@@ -101,7 +101,7 @@ export default function Home() {
         </div>
 
         {/* Products Grid */}
-        <main className="p-4 pb-24">
+        <main className="p-4 sm:p-6 pb-24 max-w-7xl mx-auto flex-1">
           {loading ? (
             <div className="text-center py-12 text-gray-500">Loading products...</div>
           ) : filteredProducts.length === 0 ? (
@@ -110,7 +110,7 @@ export default function Home() {
               <p className="text-sm text-gray-400">Try adjusting your search or filters</p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
               {filteredProducts.map(product => (
                 <ProductCard 
                   key={product.id} 
@@ -123,19 +123,11 @@ export default function Home() {
         </main>
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-4 px-4 mt-8 border-t border-gray-800">
-          <div className="max-w-6xl mx-auto text-center">
+        <footer className="bg-gray-900 text-white py-4 px-4 border-t border-gray-800 mt-auto">
+          <div className="max-w-7xl mx-auto text-center">
             <p className="text-xs text-gray-400 mb-1">© {new Date().getFullYear()} JOBICA FOODS. All rights reserved.</p>
             <p className="text-xs text-gray-500">
-              Developed by <span className="text-emerald-400 font-semibold">Oracle</span> • 
-              <a 
-                href="https://github.com/AboneChima/JobicaFoods.git" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-emerald-400 hover:text-emerald-300 ml-1"
-              >
-                GitHub
-              </a>
+              Developed by <span className="text-emerald-400 font-semibold">Oracle Studio</span>
             </p>
           </div>
         </footer>
@@ -168,26 +160,26 @@ export default function Home() {
 function ProductCard({ product, onClick }: { product: Product; onClick: () => void }) {
   return (
     <button onClick={onClick} className="w-full text-left group">
-      <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 active:scale-98 overflow-hidden border border-gray-100">
+      <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 active:scale-98 overflow-hidden border border-gray-100 h-full flex flex-col">
         <div className="aspect-[3/4] relative bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
           <img
             src={product.imageUrl}
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          <div className="absolute top-2 right-2 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+          <div className="absolute top-2 right-2 bg-emerald-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow-lg">
             ₦{product.sellingPrice.toLocaleString()}
           </div>
         </div>
         
-        <div className="p-2.5">
-          <h3 className="font-bold text-xs sm:text-sm text-gray-900 line-clamp-2 leading-tight mb-1">{product.name}</h3>
+        <div className="p-2.5 sm:p-3 flex-1 flex flex-col">
+          <h3 className="font-bold text-xs sm:text-sm text-gray-900 line-clamp-2 leading-tight mb-1 flex-1">{product.name}</h3>
           
-          <div className="flex items-center justify-between mt-1.5">
+          <div className="flex items-center justify-between mt-1.5 gap-2">
             {product.brand && (
-              <p className="text-xs text-gray-500 font-medium">{product.brand}</p>
+              <p className="text-xs text-gray-500 font-medium truncate">{product.brand}</p>
             )}
-            <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold ml-auto">
+            <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">
               {product.unit}
             </span>
           </div>
