@@ -1,0 +1,861 @@
+[
+  {
+    "id": "1",
+    "name": "Sonia Tomato Paste",
+    "brand": "Sonia",
+    "category": "Tomato Products",
+    "unit": "sachet",
+    "size": "Sachet Tomato (1.1kg)",
+    "sellingPrice": 2500,
+    "imageUrl": "/images/sonia big size 1.1kg 2500.jpeg",
+    "tags": [
+      "tomato",
+      "paste",
+      "big tin"
+    ],
+    "updatedAt": "2025-12-15T04:39:53.696Z",
+    "notes": ""
+  },
+  {
+    "id": "2",
+    "name": "Sonia Tomato Paste",
+    "brand": "Sonia",
+    "category": "Tomato Products",
+    "unit": "sachet",
+    "size": "Small Sachet (400g)",
+    "sellingPrice": 1000,
+    "imageUrl": "/images/sonia 400g 100.jpeg",
+    "tags": [
+      "tomato",
+      "paste",
+      "medium sachet"
+    ],
+    "updatedAt": "2025-12-15T04:49:27.058Z",
+    "notes": ""
+  },
+  {
+    "id": "3",
+    "name": "Gino Party Jollof Tomato",
+    "brand": "Gino",
+    "category": "Tomato Products",
+    "unit": "sachet",
+    "sellingPrice": 200,
+    "imageUrl": "/images/gino party jellof tomato 200.jpeg",
+    "tags": [
+      "tomato",
+      "paste",
+      "sachet",
+      "jollof"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "4",
+    "name": "Festin Sachet Tomato",
+    "brand": "Festin",
+    "category": "Tomato Products",
+    "unit": "sachet",
+    "sellingPrice": 150,
+    "imageUrl": "/images/festin sachet tomato 150.jpeg",
+    "tags": [
+      "tomato",
+      "paste",
+      "sachet"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "5",
+    "name": "Figo Tomato Mix",
+    "brand": "Figo",
+    "category": "Tomato Products",
+    "unit": "sachet",
+    "sellingPrice": 550,
+    "imageUrl": "/images/figo tomato mix 5,550.jpeg",
+    "tags": [
+      "tomato",
+      "mix"
+    ],
+    "updatedAt": "2025-12-15T04:50:47.238Z",
+    "size": "Small Size",
+    "notes": ""
+  },
+  {
+    "id": "6",
+    "name": "Party Jollof Maxi Pack",
+    "brand": "Generic",
+    "category": "Tomato Products",
+    "unit": "sachet",
+    "sellingPrice": 1300,
+    "imageUrl": "/images/party jellof maxi pack 1300.jpeg",
+    "tags": [
+      "tomato",
+      "jollof",
+      "maxi"
+    ],
+    "updatedAt": "2025-12-15T04:51:31.713Z",
+    "size": "Maxi Pack Big Size",
+    "notes": ""
+  },
+  {
+    "id": "7",
+    "name": "Knorr Maggi Beef",
+    "brand": "Knorr",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "sellingPrice": 2200,
+    "pricePerUnit": 100,
+    "imageUrl": "/images/knorr maggi beef 2,200.jpeg",
+    "tags": [
+      "seasoning",
+      "knorr",
+      "beef",
+      "maggi"
+    ],
+    "updatedAt": "2025-12-15T05:09:26.915Z",
+    "size": "",
+    "notes": "3 knorr maggi 200"
+  },
+  {
+    "id": "8",
+    "name": "Onga Maggi",
+    "brand": "Onga",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "size": "Small Size",
+    "sellingPrice": 800,
+    "pricePerUnit": 50,
+    "imageUrl": "/images/onga maggi small size 800.jpeg",
+    "tags": [
+      "seasoning",
+      "onga",
+      "maggi"
+    ],
+    "updatedAt": "2025-12-15T05:10:20.592Z",
+    "notes": "2 = 50Naira\n5 = 100Naira"
+  },
+  {
+    "id": "9",
+    "name": "Maggi Star Seasoning",
+    "brand": "Maggi",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "size": "Big Size",
+    "sellingPrice": 1600,
+    "pricePerUnit": 50,
+    "imageUrl": "/images/maggi star seasoning big size 1600.jpeg",
+    "tags": [
+      "seasoning",
+      "maggi",
+      "star"
+    ],
+    "updatedAt": "2025-12-15T05:11:06.428Z",
+    "notes": "3 = 50Naira\n6 = 100Naira"
+  },
+  {
+    "id": "10",
+    "name": "Onga Soup",
+    "brand": "Onga",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/onga soup 100.jpeg",
+    "tags": [
+      "seasoning",
+      "onga",
+      "soup"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "11",
+    "name": "All Purpose Seasoning",
+    "brand": "Generic",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "sellingPrice": 150,
+    "imageUrl": "/images/all purpose seasoning 150.jpeg",
+    "tags": [
+      "seasoning",
+      "all purpose"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "12",
+    "name": "Star Signature Sachet",
+    "brand": "Star",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/star signature sachet 100.jpeg",
+    "tags": [
+      "seasoning",
+      "star"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "13",
+    "name": "Gino Curry",
+    "brand": "Gino",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/gino curry 100.jpeg",
+    "tags": [
+      "curry",
+      "powder",
+      "spice",
+      "gino"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "14",
+    "name": "Curry Masala",
+    "brand": "Generic",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/curry masala 100.jpeg",
+    "tags": [
+      "curry",
+      "masala",
+      "spice"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "15",
+    "name": "Madish Curry",
+    "brand": "Madish",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/madish curry 100.jpeg",
+    "tags": [
+      "curry",
+      "madish",
+      "spice"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "16",
+    "name": "Tasty Tom Curry Powder",
+    "brand": "Tasty Tom",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/tasty tom curry powder 100.jpeg",
+    "tags": [
+      "curry",
+      "tasty tom",
+      "powder"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "17",
+    "name": "Tiger Thyme",
+    "brand": "Tiger",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/tiger thyme 100.jpeg",
+    "tags": [
+      "thyme",
+      "spice",
+      "herb",
+      "tiger"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "18",
+    "name": "Hot Pepper Powder",
+    "brand": "Generic",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/hot pepper powder 100.jpeg",
+    "tags": [
+      "pepper",
+      "powder",
+      "spice",
+      "hot"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "19",
+    "name": "Nutmeg Powder Sachet",
+    "brand": "Generic",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 150,
+    "imageUrl": "/images/nutmeg powder sachet 150.jpeg",
+    "tags": [
+      "nutmeg",
+      "powder",
+      "spice"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "20",
+    "name": "Vitals Ginger",
+    "brand": "Vitals",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/vitals ginget 100.jpeg",
+    "tags": [
+      "ginger",
+      "spice",
+      "vitals"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "21",
+    "name": "Shrimps Crayfish",
+    "brand": "Generic",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/shrimps crafish 100.jpeg",
+    "tags": [
+      "shrimps",
+      "crayfish",
+      "seafood"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "22",
+    "name": "Spicity Chicken",
+    "brand": "Spicity",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/spicity chicken 100.jpeg",
+    "tags": [
+      "spicity",
+      "chicken",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "23",
+    "name": "Spicity Fried",
+    "brand": "Spicity",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/spicity fried 100.jpeg",
+    "tags": [
+      "spicity",
+      "fried",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "24",
+    "name": "Spicity Stew and Jollof",
+    "brand": "Spicity",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/spicity stew and jellof 100.jpeg",
+    "tags": [
+      "spicity",
+      "stew",
+      "jollof",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "25",
+    "name": "Addme Chicken Spice",
+    "brand": "Addme",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 300,
+    "imageUrl": "/images/addme chicken spice 300.jpeg",
+    "tags": [
+      "chicken",
+      "spice",
+      "addme"
+    ],
+    "updatedAt": "2025-12-15T04:52:56.126Z",
+    "size": "",
+    "notes": ""
+  },
+  {
+    "id": "26",
+    "name": "Goat Meat Spice",
+    "brand": "Generic",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 150,
+    "imageUrl": "/images/goat meat spice 150.jpeg",
+    "tags": [
+      "goat",
+      "meat",
+      "spice"
+    ],
+    "updatedAt": "2025-12-15T04:53:29.362Z",
+    "size": "",
+    "notes": ""
+  },
+  {
+    "id": "27",
+    "name": "Gino Pepper Chicken",
+    "brand": "Gino",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 250,
+    "imageUrl": "/images/gino pepper chicken 200.jpeg",
+    "tags": [
+      "pepper",
+      "chicken",
+      "gino"
+    ],
+    "updatedAt": "2025-12-15T04:54:02.712Z",
+    "size": "",
+    "notes": ""
+  },
+  {
+    "id": "28",
+    "name": "Gino Pepper Chicken Asun",
+    "brand": "Gino",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "sellingPrice": 300,
+    "imageUrl": "/images/gino pepper chicken asun 300.jpeg",
+    "tags": [
+      "pepper",
+      "chicken",
+      "asun",
+      "gino"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "29",
+    "name": "Terra Chicken",
+    "brand": "Terra",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "size": "Big Size (by 100)",
+    "sellingPrice": 1800,
+    "imageUrl": "/images/terra chicken big size by 100 price 1,800.jpeg",
+    "tags": [
+      "chicken",
+      "terra",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T05:12:44.319Z",
+    "pricePerUnit": 50,
+    "notes": "3 = 50Naira, 6 = 100Naira"
+  },
+  {
+    "id": "30",
+    "name": "Terra Chicken",
+    "brand": "Terra",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "size": "Medium (by 50)",
+    "sellingPrice": 900,
+    "imageUrl": "/images/terra chicken by 50 900.jpeg",
+    "tags": [
+      "chicken",
+      "terra",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T05:13:03.298Z",
+    "pricePerUnit": 50,
+    "notes": "3 = 50Naira, 6 = 100Naira"
+  },
+  {
+    "id": "31",
+    "name": "Terra Pepper",
+    "brand": "Terra",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "sellingPrice": 600,
+    "imageUrl": "/images/terra peppe 600.jpeg",
+    "tags": [
+      "pepper",
+      "terra",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "32",
+    "name": "Larsor Peppersoup",
+    "brand": "Larsor",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/larsor peppersoup 100.jpeg",
+    "tags": [
+      "peppersoup",
+      "larsor",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "33",
+    "name": "Larsor Fried Rice",
+    "brand": "Larsor",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/larsor fried rice 100.jpeg",
+    "tags": [
+      "fried rice",
+      "larsor",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "34",
+    "name": "Larsor Banger",
+    "brand": "Larsor",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "sellingPrice": 100,
+    "imageUrl": "/images/larsor banger 100.jpeg",
+    "tags": [
+      "banger",
+      "larsor",
+      "seasoning"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "35",
+    "name": "Ama Wonda Jollof Spice",
+    "brand": "Ama Wonda",
+    "category": "Seasoning & Spices",
+    "unit": "sachet",
+    "size": "Small",
+    "sellingPrice": 100,
+    "imageUrl": "/images/ama wonda jellof spice small 100.jpeg",
+    "tags": [
+      "jollof",
+      "spice",
+      "ama wonda"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "36",
+    "name": "Ama Wonda",
+    "brand": "Ama Wonda",
+    "category": "Seasoning & Spices",
+    "unit": "pack",
+    "size": "Big Size",
+    "sellingPrice": 800,
+    "imageUrl": "/images/ama wonda big size 800.jpeg",
+    "tags": [
+      "seasoning",
+      "ama wonda"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "37",
+    "name": "Indomie Onion Chicken",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 300,
+    "imageUrl": "/images/indomie onion chicken 1 pack 300.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "onion chicken"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "38",
+    "name": "Indomie Super Pack",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 400,
+    "imageUrl": "/images/inomie super pack 1 pack 400.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "super pack"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "39",
+    "name": "Indomie Super Pack",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "carton",
+    "sellingPrice": 14700,
+    "imageUrl": "/images/indomie super pack 1 cartoon 14,700.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "carton",
+      "super pack"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "40",
+    "name": "Indomitables",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 300,
+    "imageUrl": "/images/indomitables 1 pack 300.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "indomitables"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "41",
+    "name": "Indomie Indomitables",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "carton",
+    "sellingPrice": 9600,
+    "imageUrl": "/images/indomie indomitables 1 cartoon 9,600.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "carton",
+      "indomitables"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "42",
+    "name": "Indomie Belleful",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 900,
+    "imageUrl": "/images/indomie belleful 1 pack 900.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "belleful"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "43",
+    "name": "Hungry Man",
+    "brand": "Hungry Man",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 650,
+    "imageUrl": "/images/hungry man 1 pack 650.jpeg",
+    "tags": [
+      "noodles",
+      "hungry man"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "44",
+    "name": "Indomie Hungry Man",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "carton",
+    "sellingPrice": 13600,
+    "imageUrl": "/images/indomie hungry man 1 cartoon 13,600.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "hungry man",
+      "carton"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "45",
+    "name": "Indomie Golden Penny Jollof",
+    "brand": "Indomie",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 250,
+    "imageUrl": "/images/indomie golden penny jellof i pack 250.jpeg",
+    "tags": [
+      "noodles",
+      "indomie",
+      "golden penny",
+      "jollof"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "46",
+    "name": "Golden Penny Twist Macaroni",
+    "brand": "Golden Penny",
+    "category": "Noodles & Pasta",
+    "unit": "pack",
+    "sellingPrice": 1000,
+    "imageUrl": "/images/golden penny twist maccroni 1000.jpeg",
+    "tags": [
+      "pasta",
+      "macaroni",
+      "twist",
+      "golden penny"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "47",
+    "name": "Kings Oil",
+    "brand": "Kings",
+    "category": "Cooking Oil",
+    "unit": "sachet",
+    "size": "Small Size",
+    "sellingPrice": 200,
+    "imageUrl": "/images/kings oil small size 200.jpeg",
+    "tags": [
+      "oil",
+      "vegetable",
+      "kings"
+    ],
+    "updatedAt": "2025-12-15T04:56:53.037Z",
+    "notes": ""
+  },
+  {
+    "id": "48",
+    "name": "Activa Pure Vegetable Oil",
+    "brand": "Activa",
+    "category": "Cooking Oil",
+    "unit": "sachet",
+    "sellingPrice": 200,
+    "imageUrl": "/images/activa pure vegetable oil 200.jpeg",
+    "tags": [
+      "oil",
+      "vegetable",
+      "activa"
+    ],
+    "updatedAt": "2025-12-15T04:57:10.472Z",
+    "size": "",
+    "notes": ""
+  },
+  {
+    "id": "49",
+    "name": "Laziz Oil",
+    "brand": "Laziz",
+    "category": "Cooking Oil",
+    "unit": "sachet",
+    "size": "Small Sachet",
+    "sellingPrice": 200,
+    "imageUrl": "/images/laziz oil small sachet 200.jpeg",
+    "tags": [
+      "oil",
+      "vegetable",
+      "laziz",
+      "sachet"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "50",
+    "name": "Power Oil",
+    "brand": "Power",
+    "category": "Cooking Oil",
+    "unit": "sachet",
+    "size": "Big Pack",
+    "sellingPrice": 500,
+    "imageUrl": "/images/power oil big pack 500.jpeg",
+    "tags": [
+      "oil",
+      "vegetable",
+      "power"
+    ],
+    "updatedAt": "2025-12-15T04:57:51.875Z",
+    "notes": ""
+  },
+  {
+    "id": "51",
+    "name": "Power Oil",
+    "brand": "Power",
+    "category": "Cooking Oil",
+    "unit": "pack",
+    "size": "Mini Pack",
+    "sellingPrice": 250,
+    "imageUrl": "/images/power oil mini pack 250.jpeg",
+    "tags": [
+      "oil",
+      "vegetable",
+      "power"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "52",
+    "name": "Bama Mayonnaise",
+    "brand": "Bama",
+    "category": "Condiments",
+    "unit": "bottle",
+    "size": "Big Size",
+    "sellingPrice": 4500,
+    "imageUrl": "/images/bama big size 4500.jpeg",
+    "tags": [
+      "mayonnaise",
+      "bama",
+      "condiment"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "53",
+    "name": "Bama Mayonnaise",
+    "brand": "Bama",
+    "category": "Condiments",
+    "unit": "bottle",
+    "size": "Small Size",
+    "sellingPrice": 1500,
+    "imageUrl": "/images/bama small size 1500.jpeg",
+    "tags": [
+      "mayonnaise",
+      "bama",
+      "condiment"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "54",
+    "name": "Whippy Mayonnaise",
+    "brand": "Whippy",
+    "category": "Condiments",
+    "unit": "bottle",
+    "sellingPrice": 1600,
+    "imageUrl": "/images/whippy mayonnaise 1600.jpeg",
+    "tags": [
+      "mayonnaise",
+      "whippy",
+      "condiment"
+    ],
+    "updatedAt": "2025-12-15T00:00:00Z"
+  }
+]
