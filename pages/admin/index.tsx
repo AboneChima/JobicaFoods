@@ -42,7 +42,7 @@ export default function AdminAdd() {
       });
 
       if (res.ok) {
-        router.push('/');
+        router.push('/admin/dashboard');
       }
     } catch (error) {
       alert('Failed to add product');
@@ -59,7 +59,7 @@ export default function AdminAdd() {
 
       <div className="min-h-screen bg-gray-50">
         <header className="bg-gradient-to-r from-emerald-600 to-emerald-700 px-4 py-4 flex items-center gap-3 shadow-lg">
-          <Link href="/" className="text-2xl text-white font-bold">←</Link>
+          <Link href="/admin/dashboard" className="text-2xl text-white font-bold">←</Link>
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-md">
               <span className="text-lg font-black text-emerald-600">JF</span>
@@ -243,7 +243,7 @@ export default function AdminAdd() {
                 {saving ? 'Saving...' : 'Add Product'}
               </button>
               <Link
-                href="/"
+                href="/admin/dashboard"
                 className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg text-center font-medium active:bg-gray-300"
               >
                 Cancel

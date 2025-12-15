@@ -70,7 +70,7 @@ export default function AdminEdit() {
       });
 
       if (res.ok) {
-        router.push(`/product/${id}`);
+        router.push('/admin/dashboard');
       }
     } catch (error) {
       alert('Failed to update product');
@@ -85,7 +85,7 @@ export default function AdminEdit() {
     try {
       const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
       if (res.ok) {
-        router.push('/');
+        router.push('/admin/dashboard');
       }
     } catch (error) {
       alert('Failed to delete product');
