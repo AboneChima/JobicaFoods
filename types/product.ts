@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   brand?: string;
   category: string;
-  unit: 'sachet' | 'tin' | 'bottle' | 'carton' | 'pack' | 'crate' | 'bowl' | 'nylon' | 'bag';
+  unit: 'sachet' | 'tin' | 'bottle' | 'carton' | 'pack' | 'crate' | 'bowl' | 'nylon' | 'bag' | 'gallon';
   size?: string;
   sellingPrice: number;
   pricePerUnit?: number;
@@ -26,4 +26,4 @@ export const CATEGORIES = [
   'Others'
 ];
 
-export const UNITS = ['sachet', 'tin', 'bottle', 'carton', 'pack', 'crate', 'bowl', 'nylon', 'bag'];
+export const UNITS = ['sachet', 'tin', 'bottle', 'carton', 'pack', 'crate', 'bowl', 'nylon', 'bag', 'gallon'];
