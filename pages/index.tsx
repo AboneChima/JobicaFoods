@@ -11,6 +11,40 @@ export default function Home() {
   const [unitFilter, setUnitFilter] = useState('');
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isListening, setIsListening] = useState(false);
+
+  const startVoiceSearch = () => {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      alert('Voice search not supported in this browser. Please use Chrome or Edge.');
+      return;
+    }
+
+    const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+    };
+
+    recognition.onresult = (event: any) => {
+      const transcript = event.results[0][0].transcript;
+      setSearch(transcript);
+      setIsListening(false);
+    };
+
+    recognition.onerror = () => {
+      setIsListening(false);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.start();
+  };
 
   useEffect(() => {
     fetch('/api/products')
@@ -59,18 +93,31 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Search Bar */}
+            {/* Search Bar with Voice */}
             <div className="relative max-w-2xl">
               <input
                 type="search"
                 placeholder="Search products, brands, categories..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pl-9 sm:pl-11 rounded-lg text-gray-900 text-sm sm:text-base border-0 shadow-md focus:outline-none focus:ring-2 focus:ring-white transition"
+                className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pl-9 sm:pl-11 pr-12 rounded-lg text-gray-900 text-sm sm:text-base border-0 shadow-md focus:outline-none focus:ring-2 focus:ring-white transition"
               />
               <svg className="absolute left-3 top-2.5 sm:top-3 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
+              <button
+                onClick={startVoiceSearch}
+                className={`absolute right-2 top-2 sm:top-2.5 p-1.5 rounded-lg transition ${
+                  isListening 
+                    ? 'bg-red-500 text-white animate-pulse' 
+                    : 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200'
+                }`}
+                title="Voice Search"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
+                </svg>
+              </button>
             </div>
           </div>
         </header>
@@ -258,19 +305,47 @@ function ProductModal({ product, onClose }: { product: Product; onClose: () => v
             </div>
 
             <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-700 font-medium">Price</span>
-                <span className="text-xl sm:text-2xl font-bold text-emerald-600">
-                  {product.sellingPrice > 0 ? `₦${product.sellingPrice.toLocaleString()}` : 'N/A'}
-                </span>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-gray-700 font-semibold">Pricing</span>
               </div>
-              {product.pricePerUnit && (
-                <div className="flex justify-between items-center mt-2 pt-2 border-t border-emerald-200">
-                  <span className="text-xs text-gray-600">Per unit</span>
-                  <span className="text-sm font-bold text-emerald-700">₦{product.pricePerUnit.toLocaleString()}</span>
+              
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-600">Pack/Carton</span>
+                  <span className="text-lg sm:text-xl font-bold text-emerald-600">
+                    ₦{product.sellingPrice.toLocaleString()}
+                  </span>
                 </div>
-              )}
+                
+                {product.pricePerRow && (
+                  <div className="flex justify-between items-center pt-2 border-t border-emerald-200">
+                    <span className="text-xs text-gray-600">Per Row</span>
+                    <span className="text-base font-bold text-emerald-700">₦{product.pricePerRow.toLocaleString()}</span>
+                  </div>
+                )}
+                
+                {product.pricePerHalfRow && (
+                  <div className="flex justify-between items-center pt-2 border-t border-emerald-200">
+                    <span className="text-xs text-gray-600">Half Row</span>
+                    <span className="text-base font-bold text-emerald-700">₦{product.pricePerHalfRow.toLocaleString()}</span>
+                  </div>
+                )}
+                
+                {product.pricePerUnit && (
+                  <div className="flex justify-between items-center pt-2 border-t border-emerald-200">
+                    <span className="text-xs text-gray-600">Per Unit (By 1)</span>
+                    <span className="text-sm font-bold text-emerald-700">₦{product.pricePerUnit.toLocaleString()}</span>
+                  </div>
+                )}
+              </div>
             </div>
+
+            {product.notes && (
+              <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                <p className="text-xs text-blue-600 font-semibold mb-1">📝 Important Note</p>
+                <p className="text-sm text-gray-700 leading-relaxed">{product.notes}</p>
+              </div>
+            )}
           </div>
 
           {/* Actions */}

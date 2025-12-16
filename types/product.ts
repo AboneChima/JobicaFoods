@@ -7,6 +7,8 @@ export interface Product {
   size?: string;
   sellingPrice: number;
   pricePerUnit?: number;
+  pricePerRow?: number;
+  pricePerHalfRow?: number;
   costPrice?: number;
   imageUrl: string;
   tags: string[];

@@ -15,6 +15,8 @@ export default function AdminEdit() {
     unit: '',
     size: '',
     sellingPrice: '',
+    pricePerRow: '',
+    pricePerHalfRow: '',
     pricePerUnit: '',
     costPrice: '',
     imageUrl: '',
@@ -39,6 +41,8 @@ export default function AdminEdit() {
           unit: data.unit,
           size: data.size || '',
           sellingPrice: data.sellingPrice.toString(),
+          pricePerRow: data.pricePerRow?.toString() || '',
+          pricePerHalfRow: data.pricePerHalfRow?.toString() || '',
           pricePerUnit: data.pricePerUnit?.toString() || '',
           costPrice: data.costPrice?.toString() || '',
           imageUrl: data.imageUrl,
@@ -57,6 +61,8 @@ export default function AdminEdit() {
     const updatedProduct = {
       ...formData,
       sellingPrice: parseFloat(formData.sellingPrice) || 0,
+      pricePerRow: formData.pricePerRow ? parseFloat(formData.pricePerRow) : undefined,
+      pricePerHalfRow: formData.pricePerHalfRow ? parseFloat(formData.pricePerHalfRow) : undefined,
       pricePerUnit: formData.pricePerUnit ? parseFloat(formData.pricePerUnit) : undefined,
       costPrice: formData.costPrice ? parseFloat(formData.costPrice) : undefined,
       tags: formData.tags.split(',').map(t => t.trim()).filter(Boolean),
@@ -183,29 +189,56 @@ export default function AdminEdit() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-sm font-medium mb-1">Selling Price (₦)</label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={formData.sellingPrice}
-                  onChange={(e) => setFormData({ ...formData, sellingPrice: e.target.value })}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                  placeholder="Pack/Carton price"
-                />
-              </div>
+            <div>
+              <label className="block text-sm font-medium mb-1 text-emerald-700">💰 Pricing Options</label>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs text-gray-600 mb-1">Pack/Carton Price (₦) *</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.sellingPrice}
+                    onChange={(e) => setFormData({ ...formData, sellingPrice: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    placeholder="Main price"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-1">Price Per Unit (₦)</label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={formData.pricePerUnit}
-                  onChange={(e) => setFormData({ ...formData, pricePerUnit: e.target.value })}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                  placeholder="By 1 price"
-                />
+                <div>
+                  <label className="block text-xs text-gray-600 mb-1">Per Row (₦)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.pricePerRow}
+                    onChange={(e) => setFormData({ ...formData, pricePerRow: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    placeholder="Row price"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs text-gray-600 mb-1">Half Row (₦)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.pricePerHalfRow}
+                    onChange={(e) => setFormData({ ...formData, pricePerHalfRow: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    placeholder="Half row price"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs text-gray-600 mb-1">Per Unit / By 1 (₦)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.pricePerUnit}
+                    onChange={(e) => setFormData({ ...formData, pricePerUnit: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    placeholder="Single unit"
+                  />
+                </div>
               </div>
             </div>
 
@@ -217,6 +250,7 @@ export default function AdminEdit() {
                 value={formData.costPrice}
                 onChange={(e) => setFormData({ ...formData, costPrice: e.target.value })}
                 className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                placeholder="Your buying price"
               />
             </div>
 
@@ -273,13 +307,15 @@ export default function AdminEdit() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Notes</label>
+              <label className="block text-sm font-medium mb-1">📝 Notes (Important Info)</label>
               <textarea
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 rows={3}
+                placeholder="E.g., Sold in rows of 4, Available in different flavors, etc."
                 className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
               />
+              <p className="text-xs text-gray-500 mt-1">This will be displayed to customers in product details</p>
             </div>
 
             <div className="flex gap-3 pt-4">
