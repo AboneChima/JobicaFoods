@@ -15,35 +15,58 @@ export default function Home() {
 
   const startVoiceSearch = () => {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-      alert('Voice search not supported in this browser. Please use Chrome or Edge.');
+      alert('Voice search not supported. Please use Chrome or Edge browser.');
       return;
     }
 
     const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
     const recognition = new SpeechRecognition();
+    
+    // Optimize for speed
     recognition.lang = 'en-US';
     recognition.continuous = false;
-    recognition.interimResults = false;
+    recognition.interimResults = true; // Show results as you speak
+    recognition.maxAlternatives = 1;
 
     recognition.onstart = () => {
       setIsListening(true);
+      setSearch(''); // Clear previous search
     };
 
     recognition.onresult = (event: any) => {
-      const transcript = event.results[0][0].transcript;
-      setSearch(transcript);
-      setIsListening(false);
+      let transcript = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          setSearch(transcript.trim());
+          setIsListening(false);
+        } else {
+          // Show interim results immediately
+          setSearch(transcript.trim());
+        }
+      }
     };
 
-    recognition.onerror = () => {
+    recognition.onerror = (event: any) => {
+      console.error('Speech recognition error:', event.error);
       setIsListening(false);
+      if (event.error === 'no-speech') {
+        alert('No speech detected. Please try again.');
+      } else if (event.error === 'not-allowed') {
+        alert('Microphone access denied. Please allow microphone access.');
+      }
     };
 
     recognition.onend = () => {
       setIsListening(false);
     };
 
-    recognition.start();
+    try {
+      recognition.start();
+    } catch (error) {
+      console.error('Failed to start recognition:', error);
+      setIsListening(false);
+    }
   };
 
   useEffect(() => {
@@ -107,17 +130,29 @@ export default function Home() {
               </svg>
               <button
                 onClick={startVoiceSearch}
-                className={`absolute right-2 top-2 sm:top-2.5 p-1.5 rounded-lg transition ${
+                disabled={isListening}
+                className={`absolute right-2 top-2 sm:top-2.5 p-1.5 rounded-lg transition-all ${
                   isListening 
-                    ? 'bg-red-500 text-white animate-pulse' 
-                    : 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200'
+                    ? 'bg-red-500 text-white animate-pulse shadow-lg scale-110' 
+                    : 'bg-emerald-500 text-white hover:bg-emerald-600 shadow-md hover:shadow-lg active:scale-95'
                 }`}
-                title="Voice Search"
+                title={isListening ? 'Listening...' : 'Click to speak'}
               >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
-                </svg>
+                {isListening ? (
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
+                  </svg>
+                )}
               </button>
+              {isListening && (
+                <div className="absolute right-14 top-2 sm:top-2.5 bg-red-500 text-white text-xs px-2 py-1 rounded-lg animate-pulse">
+                  🎤 Listening...
+                </div>
+              )}
             </div>
           </div>
         </header>
