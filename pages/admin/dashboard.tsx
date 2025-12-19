@@ -7,6 +7,8 @@ export default function AdminDashboard() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetch('/api/products')
@@ -29,15 +31,25 @@ export default function AdminDashboard() {
   });
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this product?')) return;
+    if (!confirm('⚠️ Are you sure you want to delete this product? This action cannot be undone.')) return;
+
+    setError('');
+    setSuccess('');
 
     try {
       const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
       if (res.ok) {
         setProducts(products.filter(p => p.id !== id));
+        setSuccess('✅ Product deleted successfully!');
+        setTimeout(() => setSuccess(''), 3000);
+      } else {
+        const data = await res.json();
+        setError(`❌ Failed to delete: ${data.error || 'Unknown error'}`);
+        setTimeout(() => setError(''), 5000);
       }
     } catch (error) {
-      alert('Failed to delete product');
+      setError('❌ Network error. Please try again.');
+      setTimeout(() => setError(''), 5000);
     }
   };
 
@@ -79,6 +91,25 @@ export default function AdminDashboard() {
         </header>
 
         <main className="p-6 max-w-7xl mx-auto">
+          {/* Success/Error Messages */}
+          {success && (
+            <div className="bg-green-50 border-2 border-green-500 text-green-800 px-4 py-3 rounded-lg mb-4 flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <p className="font-semibold">{success}</p>
+            </div>
+          )}
+          
+          {error && (
+            <div className="bg-red-50 border-2 border-red-500 text-red-800 px-4 py-3 rounded-lg mb-4 flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              </svg>
+              <p className="font-semibold">{error}</p>
+            </div>
+          )}
+
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
               <div>
