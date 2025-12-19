@@ -1536,26 +1536,26 @@
   },
   {
     "id": "113",
-    "name": "Mr Chef",
+    "name": "Mr Chef Salt",
     "brand": "Mr Chef",
     "category": "Seasoning & Spices",
     "unit": "pack",
     "size": "250g",
     "sellingPrice": 150,
     "imageUrl": "/images/mr chef 250g  150.jpeg",
-    "tags": ["seasoning", "mr chef"],
+    "tags": ["seasoning", "mr chef", "salt"],
     "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
     "id": "114",
-    "name": "Mr Chef",
+    "name": "Mr Chef Salt",
     "brand": "Mr Chef",
     "category": "Seasoning & Spices",
     "unit": "pack",
     "size": "500g",
     "sellingPrice": 300,
     "imageUrl": "/images/mr chef 500g 300.jpeg",
-    "tags": ["seasoning", "mr chef"],
+    "tags": ["seasoning", "mr chef", "salt"],
     "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
