@@ -145,7 +145,7 @@ export default function AdminEdit() {
           </div>
         </header>
 
-        <main className="p-4 max-w-2xl mx-auto">
+        <main className="p-6 max-w-5xl mx-auto min-h-screen">
           {/* Success/Error Messages */}
           {success && (
             <div className="bg-green-50 border-2 border-green-500 text-green-800 px-4 py-3 rounded-lg mb-4 flex items-center gap-2 animate-pulse">
@@ -165,183 +165,184 @@ export default function AdminEdit() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-4 space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-1">Product Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-1">Brand</label>
-              <input
-                type="text"
-                value={formData.brand}
-                onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-sm font-medium mb-1">Category *</label>
-                <select
-                  required
-                  value={formData.category}
-                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                >
-                  {CATEGORIES.map(cat => (
-                    <option key={cat} value={cat}>{cat}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1">Unit *</label>
-                <select
-                  required
-                  value={formData.unit}
-                  onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                >
-                  {UNITS.map(unit => (
-                    <option key={unit} value={unit}>{unit}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-1">Size</label>
-              <input
-                type="text"
-                value={formData.size}
-                onChange={(e) => setFormData({ ...formData, size: e.target.value })}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-1 text-emerald-700">💰 Pricing Options</label>
-              <div className="grid grid-cols-2 gap-3">
+          <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-6 space-y-6">
+            <div className="grid lg:grid-cols-2 gap-6">
+              {/* Left Column - Basic Info */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-gray-900 border-b pb-2">Basic Information</h3>
+                
                 <div>
-                  <label className="block text-xs text-gray-600 mb-1">Pack/Carton Price (₦) *</label>
+                  <label className="block text-sm font-medium mb-1">Product Name *</label>
                   <input
-                    type="number"
-                    step="0.01"
-                    value={formData.sellingPrice}
-                    onChange={(e) => setFormData({ ...formData, sellingPrice: e.target.value })}
-                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                    placeholder="Main price"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs text-gray-600 mb-1">Per Row (₦)</label>
+                  <label className="block text-sm font-medium mb-1">Brand</label>
                   <input
-                    type="number"
-                    step="0.01"
-                    value={formData.pricePerRow}
-                    onChange={(e) => setFormData({ ...formData, pricePerRow: e.target.value })}
-                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                    placeholder="Row price"
+                    type="text"
+                    value={formData.brand}
+                    onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Half Row (₦)</label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    value={formData.pricePerHalfRow}
-                    onChange={(e) => setFormData({ ...formData, pricePerHalfRow: e.target.value })}
-                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                    placeholder="Half row price"
-                  />
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Category *</label>
+                    <select
+                      required
+                      value={formData.category}
+                      onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                      className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                    >
+                      {CATEGORIES.map(cat => (
+                        <option key={cat} value={cat}>{cat}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Unit *</label>
+                    <select
+                      required
+                      value={formData.unit}
+                      onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
+                      className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                    >
+                      {UNITS.map(unit => (
+                        <option key={unit} value={unit}>{unit}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs text-gray-600 mb-1">Per Unit / By 1 (₦)</label>
+                  <label className="block text-sm font-medium mb-1">Size</label>
                   <input
-                    type="number"
-                    step="0.01"
-                    value={formData.pricePerUnit}
-                    onChange={(e) => setFormData({ ...formData, pricePerUnit: e.target.value })}
-                    className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                    placeholder="Single unit"
+                    type="text"
+                    value={formData.size}
+                    onChange={(e) => setFormData({ ...formData, size: e.target.value })}
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                    placeholder="e.g., Big Size, 500g, 1L"
                   />
                 </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-1">Cost Price (₦)</label>
-              <input
-                type="number"
-                step="0.01"
-                value={formData.costPrice}
-                onChange={(e) => setFormData({ ...formData, costPrice: e.target.value })}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                placeholder="Your buying price"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-1">Product Image</label>
-              <div className="flex gap-3">
-                <div className="w-24 h-32 bg-gray-100 rounded-lg overflow-hidden border-2 border-gray-200 flex-shrink-0">
+              {/* Right Column - Image */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-gray-900 border-b pb-2">Product Image</h3>
+                
+                <div className="aspect-[3/4] bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-200">
                   <img
                     src={imagePreview}
                     alt="Preview"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex-1">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) {
-                        const reader = new FileReader();
-                        reader.onloadend = () => {
-                          setImagePreview(reader.result as string);
-                        };
-                        reader.readAsDataURL(file);
-                      }
-                    }}
-                    className="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                  />
-                  <p className="text-xs text-gray-500 mt-2">Upload a product image (JPG, PNG)</p>
-                  <p className="text-xs text-gray-400 mt-1">Or manually enter image path:</p>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Image URL *</label>
                   <input
                     type="text"
+                    required
                     value={formData.imageUrl}
                     onChange={(e) => {
                       setFormData({ ...formData, imageUrl: e.target.value });
                       setImagePreview(e.target.value);
                     }}
                     placeholder="/images/product.jpeg"
-                    className="w-full px-3 py-2 border rounded-lg text-sm mt-1 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Enter the image path or URL</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Pricing Section - Full Width */}
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 border-b pb-2 mb-4">💰 Pricing Options</h3>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Pack/Carton Price (₦) *</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    required
+                    value={formData.sellingPrice}
+                    onChange={(e) => setFormData({ ...formData, sellingPrice: e.target.value })}
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                    placeholder="Main price"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-1">Per Row (₦)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.pricePerRow}
+                    onChange={(e) => setFormData({ ...formData, pricePerRow: e.target.value })}
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                    placeholder="Row price"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-1">Half Row (₦)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.pricePerHalfRow}
+                    onChange={(e) => setFormData({ ...formData, pricePerHalfRow: e.target.value })}
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                    placeholder="Half row price"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-1">Per Unit / By 1 (₦)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.pricePerUnit}
+                    onChange={(e) => setFormData({ ...formData, pricePerUnit: e.target.value })}
+                    className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                    placeholder="Single unit"
                   />
                 </div>
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-1">Tags (comma-separated)</label>
-              <input
-                type="text"
-                value={formData.tags}
-                onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-              />
+            {/* Tags and Notes - Full Width */}
+            <div className="grid lg:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-1">🏷️ Tags (comma-separated)</label>
+                <input
+                  type="text"
+                  value={formData.tags}
+                  onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
+                  className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                  placeholder="e.g., tomato, paste, sachet"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-1">💵 Cost Price (₦)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  value={formData.costPrice}
+                  onChange={(e) => setFormData({ ...formData, costPrice: e.target.value })}
+                  className="w-full px-3 py-2 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none"
+                  placeholder="Your buying price"
+                />
+              </div>
             </div>
 
             <div>
@@ -356,19 +357,38 @@ export default function AdminEdit() {
               <p className="text-xs text-gray-500 mt-1">This will be displayed to customers in product details</p>
             </div>
 
-            <div className="flex gap-3 pt-4">
+            <div className="flex gap-4 pt-6 border-t">
               <button
                 type="submit"
                 disabled={saving}
-                className="flex-1 bg-emerald-600 text-white py-3 rounded-lg font-medium disabled:bg-gray-400"
+                className="flex-1 bg-emerald-600 text-white py-4 rounded-xl font-bold text-lg disabled:bg-gray-400 disabled:cursor-not-allowed hover:bg-emerald-700 transition shadow-lg flex items-center justify-center gap-2"
               >
-                {saving ? 'Saving...' : 'Update Product'}
+                {saving ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Saving Changes...
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Update Product
+                  </>
+                )}
               </button>
               <button
                 type="button"
                 onClick={handleDelete}
-                className="px-6 bg-red-600 text-white py-3 rounded-lg font-medium"
+                disabled={saving}
+                className="px-8 bg-red-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition shadow-lg flex items-center gap-2 disabled:opacity-50"
               >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
                 Delete
               </button>
             </div>
