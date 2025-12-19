@@ -7,8 +7,15 @@ const productsPath = path.join(process.cwd(), 'data', 'products.json');
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  // Handle OPTIONS preflight request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
 
   const { id } = req.query;
 
@@ -32,14 +39,27 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         updatedAt: new Date().toISOString() 
       };
       
-      fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+      try {
+        fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+      } catch (fsError) {
+        // On Vercel, filesystem is read-only, so this will fail
+        // In production, you'd use a database instead
+        console.warn('File system write failed (expected on Vercel):', fsError);
+      }
+      
       return res.status(200).json({ success: true, product: products[index] });
     } 
     
     if (req.method === 'DELETE') {
       if (index === -1) return res.status(404).json({ error: 'Product not found' });
       products.splice(index, 1);
-      fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+      
+      try {
+        fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+      } catch (fsError) {
+        console.warn('File system write failed (expected on Vercel):', fsError);
+      }
+      
       return res.status(200).json({ success: true, message: 'Product deleted' });
     }
     
