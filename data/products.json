@@ -875,10 +875,10 @@
     "brand": "Golden Penny",
     "category": "Noodles & Pasta",
     "unit": "pack",
-    "sellingPrice": 100,
+    "sellingPrice": 1000,
     "imageUrl": "/images/Golden Penny Spaghetti 100.jpeg",
     "tags": ["spaghetti", "pasta", "golden penny"],
-    "updatedAt": "2025-12-15T00:00:00Z"
+    "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
     "id": "57",
@@ -1470,10 +1470,12 @@
     "name": "Larsor Chicken Seasoning",
     "brand": "Larsor",
     "category": "Seasoning & Spices",
-    "unit": "pack",
-    "sellingPrice": 800,
+    "unit": "sachet",
+    "sellingPrice": 200,
+    "pricePerRow": 800,
     "imageUrl": "/images/larsor chicken seasoning sachet 800.jpeg",
     "tags": ["seasoning", "larsor", "chicken"],
+    "notes": "Sold in rows of 5 pieces. Buy 5 for ₦800 (save ₦200!)",
     "updatedAt": "2025-12-16T00:00:00Z"
   },
   {
@@ -1601,6 +1603,18 @@
     "sellingPrice": 5700,
     "imageUrl": "/images/egg 1 crate 5,700.jpeg",
     "tags": ["eggs", "protein", "crate"],
+    "updatedAt": "2025-12-16T00:00:00Z"
+  },
+  {
+    "id": "119",
+    "name": "Whippy Cream Mayonnaise",
+    "brand": "Whippy",
+    "category": "Condiments",
+    "unit": "bottle",
+    "size": "Big Size",
+    "sellingPrice": 2700,
+    "imageUrl": "/images/whippy mayonnaise big size 2700.jpeg",
+    "tags": ["mayonnaise", "whippy", "condiment", "big size", "cream"],
     "updatedAt": "2025-12-16T00:00:00Z"
   }
 ]

@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Product, CATEGORIES, UNITS } from '@/types/product';
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGES } from '@/config/contact';
+import { useCart } from '@/context/CartContext';
+import Cart from '@/components/Cart';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,6 +14,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isListening, setIsListening] = useState(false);
+  const { addToCart } = useCart();
 
   const startVoiceSearch = () => {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
@@ -198,6 +201,10 @@ export default function Home() {
                   key={product.id} 
                   product={product}
                   onClick={() => setSelectedProduct(product)}
+                  onAddToCart={(e) => {
+                    e.stopPropagation();
+                    addToCart(product);
+                  }}
                 />
               ))}
             </div>
@@ -234,16 +241,19 @@ export default function Home() {
             onClose={() => setSelectedProduct(null)} 
           />
         )}
+
+        {/* Shopping Cart */}
+        <Cart />
       </div>
     </>
   );
 }
 
-function ProductCard({ product, onClick }: { product: Product; onClick: () => void }) {
+function ProductCard({ product, onClick, onAddToCart }: { product: Product; onClick: () => void; onAddToCart: (e: React.MouseEvent) => void }) {
   return (
-    <button onClick={onClick} className="w-full text-left group">
-      <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 active:scale-98 overflow-hidden border border-gray-100 h-full flex flex-col">
-        <div className="aspect-[3/4] relative bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+    <div className="w-full text-left group">
+      <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full flex flex-col">
+        <button onClick={onClick} className="aspect-[3/4] relative bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
           <img
             src={product.imageUrl}
             alt={product.name}
@@ -252,22 +262,34 @@ function ProductCard({ product, onClick }: { product: Product; onClick: () => vo
           <div className="absolute top-2 right-2 bg-emerald-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow-lg">
             ₦{product.sellingPrice.toLocaleString()}
           </div>
-        </div>
+        </button>
         
         <div className="p-2.5 sm:p-3 flex-1 flex flex-col">
-          <h3 className="font-bold text-xs sm:text-sm text-gray-900 line-clamp-2 leading-tight mb-1 flex-1">{product.name}</h3>
+          <button onClick={onClick} className="text-left flex-1">
+            <h3 className="font-bold text-xs sm:text-sm text-gray-900 line-clamp-2 leading-tight mb-1">{product.name}</h3>
+            
+            <div className="flex items-center justify-between mt-1.5 gap-2">
+              {product.brand && (
+                <p className="text-xs text-gray-500 font-medium truncate">{product.brand}</p>
+              )}
+              <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">
+                {product.unit}
+              </span>
+            </div>
+          </button>
           
-          <div className="flex items-center justify-between mt-1.5 gap-2">
-            {product.brand && (
-              <p className="text-xs text-gray-500 font-medium truncate">{product.brand}</p>
-            )}
-            <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">
-              {product.unit}
-            </span>
-          </div>
+          <button
+            onClick={onAddToCart}
+            className="mt-2 w-full bg-emerald-600 text-white py-1.5 rounded-lg text-xs font-semibold hover:bg-emerald-700 active:scale-95 transition flex items-center justify-center gap-1"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Add to Cart
+          </button>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 

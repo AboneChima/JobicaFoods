@@ -6,6 +6,7 @@ import { Product } from '@/types/product';
 export default function AdminDashboard() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     fetch('/api/products')
@@ -15,6 +16,17 @@ export default function AdminDashboard() {
         setLoading(false);
       });
   }, []);
+
+  const filteredProducts = products.filter(product => {
+    if (!search) return true;
+    const searchLower = search.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(searchLower) ||
+      product.brand?.toLowerCase().includes(searchLower) ||
+      product.category.toLowerCase().includes(searchLower) ||
+      product.tags.some(tag => tag.toLowerCase().includes(searchLower))
+    );
+  });
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this product?')) return;
@@ -68,15 +80,50 @@ export default function AdminDashboard() {
 
         <main className="p-6 max-w-7xl mx-auto">
           <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Product Inventory</h2>
-            <p className="text-gray-600">Total: {products.length} products</p>
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-1">Product Inventory</h2>
+                <p className="text-gray-600">
+                  {filteredProducts.length} of {products.length} products
+                </p>
+              </div>
+            </div>
+            
+            {/* Search Bar */}
+            <div className="relative max-w-xl">
+              <input
+                type="search"
+                placeholder="Search products by name, brand, category..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full px-4 py-3 pl-11 rounded-lg text-gray-900 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition"
+              />
+              <svg className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              {search && (
+                <button
+                  onClick={() => setSearch('')}
+                  className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
 
           {loading ? (
             <div className="text-center py-20 text-gray-500">Loading products...</div>
+          ) : filteredProducts.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-gray-500 mb-2">No products found</p>
+              <p className="text-sm text-gray-400">Try adjusting your search</p>
+            </div>
           ) : (
             <div className="grid grid-cols-5 gap-4">
-              {products.map(product => (
+              {filteredProducts.map(product => (
                 <div key={product.id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all border border-gray-100 overflow-hidden group">
                   <div className="aspect-[3/4] relative bg-gradient-to-br from-gray-50 to-gray-100">
                     <img
