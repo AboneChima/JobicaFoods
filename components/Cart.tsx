@@ -1,11 +1,33 @@
+import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGES } from '@/config/contact';
 
 export default function Cart() {
   const { cart, updateQuantity, removeFromCart, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const [isMinimized, setIsMinimized] = useState(false);
 
   if (cart.length === 0) {
     return null;
+  }
+
+  if (isMinimized) {
+    return (
+      <button
+        onClick={() => setIsMinimized(false)}
+        className="fixed bottom-4 right-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-4 py-3 rounded-full shadow-2xl z-50 flex items-center gap-2 hover:scale-105 transition-transform"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        <div className="text-left">
+          <p className="text-xs font-semibold">{getTotalItems()} items</p>
+          <p className="text-sm font-black">₦{getTotalPrice().toLocaleString()}</p>
+        </div>
+        <div className="bg-white text-emerald-600 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs">
+          {getTotalItems()}
+        </div>
+      </button>
+    );
   }
 
   const sendWhatsAppOrder = () => {
@@ -33,20 +55,42 @@ export default function Cart() {
             <p className="text-emerald-100 text-xs">{getTotalItems()} items</p>
           </div>
         </div>
-        <button
-          onClick={clearCart}
-          className="text-white hover:bg-white hover:bg-opacity-20 px-3 py-1 rounded-lg text-sm transition"
-        >
-          Clear All
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setIsMinimized(true)}
+            className="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-lg transition"
+            title="Minimize cart"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={clearCart}
+            className="text-white hover:bg-white hover:bg-opacity-20 px-3 py-1 rounded-lg text-sm transition"
+          >
+            Clear
+          </button>
+        </div>
       </div>
 
       {/* Cart Items */}
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
         {cart.map(item => {
-          const isLarsorChicken = item.name.toLowerCase().includes('larsor') && item.name.toLowerCase().includes('chicken');
-          const rows = isLarsorChicken ? Math.floor(item.quantity / 5) : 0;
-          const remaining = isLarsorChicken ? item.quantity % 5 : 0;
+          // Smart row/half-row detection
+          const hasRowPricing = item.pricePerRow && item.pricePerRow > 0;
+          const hasHalfRowPricing = item.pricePerHalfRow && item.pricePerHalfRow > 0;
+          
+          const piecesPerRow = 5;
+          const piecesPerHalfRow = 3;
+          
+          const rows = hasRowPricing ? Math.floor(item.quantity / piecesPerRow) : 0;
+          const halfRows = hasHalfRowPricing && !hasRowPricing ? Math.floor(item.quantity / piecesPerHalfRow) : 0;
+          const remaining = hasRowPricing 
+            ? item.quantity % piecesPerRow 
+            : hasHalfRowPricing 
+              ? item.quantity % piecesPerHalfRow 
+              : 0;
 
           return (
             <div key={item.id} className="bg-gray-50 rounded-lg p-3 flex gap-3">
@@ -60,9 +104,15 @@ export default function Cart() {
                 <h4 className="font-semibold text-sm text-gray-900 line-clamp-1">{item.name}</h4>
                 <p className="text-xs text-gray-500">{item.brand}</p>
                 
-                {isLarsorChicken && rows > 0 && (
+                {/* Show row/half-row breakdown */}
+                {rows > 0 && (
                   <p className="text-xs text-emerald-600 font-semibold mt-1">
-                    {rows} row{rows > 1 ? 's' : ''} {remaining > 0 && `+ ${remaining} unit${remaining > 1 ? 's' : ''}`}
+                    💰 {rows} row{rows > 1 ? 's' : ''} {remaining > 0 && `+ ${remaining} unit${remaining > 1 ? 's' : ''}`}
+                  </p>
+                )}
+                {halfRows > 0 && rows === 0 && (
+                  <p className="text-xs text-emerald-600 font-semibold mt-1">
+                    💰 {halfRows} half row{halfRows > 1 ? 's' : ''} {remaining > 0 && `+ ${remaining} unit${remaining > 1 ? 's' : ''}`}
                   </p>
                 )}
                 

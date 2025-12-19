@@ -250,6 +250,9 @@ export default function Home() {
 }
 
 function ProductCard({ product, onClick, onAddToCart }: { product: Product; onClick: () => void; onAddToCart: (e: React.MouseEvent) => void }) {
+  const hasRowPricing = product.pricePerRow && product.pricePerRow > 0;
+  const hasHalfRowPricing = product.pricePerHalfRow && product.pricePerHalfRow > 0;
+  
   return (
     <div className="w-full text-left group">
       <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full flex flex-col">
@@ -262,6 +265,11 @@ function ProductCard({ product, onClick, onAddToCart }: { product: Product; onCl
           <div className="absolute top-2 right-2 bg-emerald-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow-lg">
             ₦{product.sellingPrice.toLocaleString()}
           </div>
+          {(hasRowPricing || hasHalfRowPricing) && (
+            <div className="absolute top-2 left-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+              💰 Row Deal
+            </div>
+          )}
         </button>
         
         <div className="p-2.5 sm:p-3 flex-1 flex flex-col">
